@@ -1,24 +1,28 @@
-
-var sliderSz;
-var sliderSp;
-var sliderR;
-var sliderG;
-var sliderB;
+var gui;
+var size = 50,sizeMin=10,sizeMax=100,sizeStep=5;
+var shape = 0.5,shapeMin=0,shapeMax=1,shapeStep=0.01;
+// var colour = color(100,180,200);
+var fillColor = [180, 255, 255];
 
 function setup(){
   // noCanvas();
   createCanvas(windowWidth,windowHeight);
-  background('red');
+  background('blue');
 
+  gui = createGui('Modify the brush!!');
+  gui.addGlobals('size','shape','fillColor');
+
+
+// gui.addGlobals('size','shape','color');
 
 // size createConvolver(
-createP('Size');
-  sliderSz = createSlider(10, 300, 50, 10);
+/*createP('Size');
+  sliderSz = createSlider(10, 300, 50, 50);
 
 
 // shape controll
 createP('shape');
-sliderSp=createSlider(0, 1, 0.7, 0);
+sliderSp=createSlider(0, 1, 0.5, 0);
 
 // color controll
 createP('Color');
@@ -30,7 +34,7 @@ createP();
 createP();
   sliderB = createSlider(0, 255, 125);
   // sliderB.position(50, windowHeight / 2 + 175);
-
+*/
 }
 
 
@@ -39,8 +43,9 @@ createP();
 function draw(){
    // fill background, draw ellipse
    rectMode(CENTER);
-   fill(100,100,124);
-   // ellipse(width/2,height/2,100);
-   // rect(mouseX,mouseY,30,100,37.5);
-      rect(mouseX,mouseY,sliderSz,sliderSz,sliderSp*sliderSz/2);
+   fill(fillColor);
+   // fill(255);
+   // ellipse(mouseX,mouseY,size);
+   rect(mouseX,mouseY,size,size,shape*size/2);
+      // rect(mouseX,mouseY,sliderSz,sliderSz,sliderSp*sliderSz/2);
 }
